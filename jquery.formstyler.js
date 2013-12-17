@@ -309,6 +309,9 @@
 											var visible = opt.selectVisibleOptions;
 											var	minHeight = liHeight * 6;
 											var	newHeight = liHeight * visible;
+											if (selectbox.offset().left + dropdown.width() > win.width()) {
+												dropdown.css({left: selectbox.width() - dropdown.width() })
+											}
 											if (visible > 0 && visible < 6) minHeight =  newHeight;
 											// раскрытие вверх
 											if (bottomOffset < 0 || bottomOffset < minHeight)	{
@@ -338,7 +341,7 @@
 										$('span.jqselect').css({zIndex: (opt.singleSelectzIndex - 1)}).removeClass('focused');
 										selectbox.css({zIndex: opt.singleSelectzIndex});
 										if (dropdown.is(':hidden')) {
-                                            $('div.jq-selectbox__dropdown:visible').hide().parents('.jqselect').removeClass('opened');
+											$('div.jq-selectbox__dropdown:visible').hide().parents('.jqselect').removeClass('opened');
 											dropdown.show();
 											selectbox.addClass('opened');
 										} else {
