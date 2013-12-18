@@ -311,6 +311,8 @@
 											var	newHeight = liHeight * visible;
 											if (selectbox.offset().left + dropdown.width() > win.width()) {
 												dropdown.css({left: selectbox.width() - dropdown.width() })
+											} else {
+												dropdown.css({left: 0});
 											}
 											if (visible > 0 && visible < 6) minHeight =  newHeight;
 											// раскрытие вверх
